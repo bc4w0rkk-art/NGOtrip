@@ -294,7 +294,50 @@ body::after {
   border: 1px solid rgba(61,107,142,.15); box-shadow: var(--sh);
 }
 
-/* ── TRANSPORT CARD (v4 + v7 compat) ── 藍染全認領 */
+/* ── HOTEL CARD ── */
+.hotel-card {
+  background: linear-gradient(135deg, rgba(123,107,168,.10), rgba(123,107,168,.04));
+  border: 1px solid rgba(123,107,168,.28);
+  border-left: 4px solid var(--fuji-murasaki);
+  border-radius: var(--rmd); padding: 11px 13px;
+  margin: 0 16px 12px; box-shadow: var(--sh);
+}
+.hotel-card-title {
+  font-size: .58rem; color: var(--fuji-murasaki); font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;
+  padding-bottom: 5px; border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, var(--fuji-murasaki), transparent) 1;
+  display: block;
+}
+.hotel-name { font-family: 'Shippori Mincho', serif; font-size: .92rem; font-weight: 600; color: var(--txt); margin-bottom: 3px; }
+.hotel-dates { font-size: .66rem; color: var(--fuji-murasaki); font-weight: 700; margin-bottom: 7px; }
+.hotel-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.hotel-nav-btn {
+  display: flex; align-items: center; gap: 4px;
+  background: rgba(123,107,168,.10); border: 1px solid rgba(123,107,168,.25);
+  border-radius: var(--rsm); padding: 6px 10px;
+  font-size: .7rem; font-weight: 700; color: var(--fuji-murasaki);
+  text-decoration: none; cursor: pointer; flex: 1; justify-content: center;
+  transition: all .15s;
+}
+.hotel-nav-btn:active { background: rgba(123,107,168,.22); }
+.hotel-nav-btn.gmaps { background: rgba(61,107,142,.10); border-color: rgba(61,107,142,.25); color: var(--ai); }
+.hotel-nav-btn.gmaps:active { background: rgba(61,107,142,.22); }
+
+/* ── BACKUP ── */
+.backup-card {
+  background: var(--surf); border: 1px solid var(--bdr);
+  border-radius: var(--rmd); padding: 13px 15px; margin-bottom: 12px;
+  box-shadow: var(--sh); border-top: 2px solid var(--matcha);
+}
+.backup-title { font-size: .58rem; color: var(--matcha); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 2px solid; border-image: linear-gradient(90deg, var(--matcha), transparent) 1; display: block; }
+.backup-desc { font-size: .75rem; color: var(--txts); margin-bottom: 11px; line-height: 1.6; }
+.backup-btns { display: flex; gap: 7px; }
+.backup-btn { flex: 1; padding: 9px 6px; border-radius: var(--rsm); border: none; font-size: .76rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: all .15s; }
+.backup-export { background: linear-gradient(135deg, var(--matcha), #3d7a50); color: #fff; }
+.backup-import { background: var(--surf2); border: 1px solid var(--bdrm); color: var(--txts); }
+.backup-export:active { opacity: .85; }
+.backup-import:active { background: var(--washi3); }
 .transport-card {
   background: linear-gradient(135deg, rgba(61,107,142,.10), rgba(61,107,142,.04));
   border: 1px solid rgba(61,107,142,.30);
@@ -946,6 +989,15 @@ body::after {
     <div class="day-summary"><div class="ds-grid"><div class="ds-cell"><div class="ds-lbl">今日花費</div><div class="ds-val" id="ds-spend-0">¥0</div><div class="ds-sub" id="ds-ntd-0">≈ NT$0</div></div><div class="ds-cell"><div class="ds-lbl">旅程累計</div><div class="ds-val" id="ds-total-0">¥0</div><div class="ds-sub" id="ds-tntd-0">≈ NT$0</div></div></div><textarea class="ds-note" id="ds-note-0" placeholder="今日小記…" onblur="saveDayNote(0,this.value)"></textarea></div><div class="prog-bar"><div class="prog-header"><span class="prog-lbl">🥾 打卡進度</span><span class="prog-cnt" id="prog-cnt-0"></span></div><div class="prog-track"><div class="prog-line"></div><div class="prog-fill" id="prog-fill-0" style="width:0%"></div><div class="prog-steps"><span class="step" id="step-0-0">✈️</span><span class="step" id="step-0-1">🚄</span><span class="step" id="step-0-2">🏯</span><span class="step" id="step-0-3">🛍</span><span class="step" id="step-0-4">🍜</span><span class="step" id="step-0-5">🥾</span><span class="step" id="step-0-6">🏁</span></div></div></div>
     <div id="weather-0" class="weather-loading">⛅ 載入天氣中…</div>
     <div class="transport-card"><div class="transport-card-title">🚄 今日交通</div><div class="transport-row"><span class="transport-route">✈️ NGO → 名古屋站<br><span style="font-size:0.72rem;color:var(--text-muted)">μ-SKY 特急 28分鐘</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=中部国際空港&daddr=名古屋駅&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="transport-row"><span class="transport-route">🚄 名古屋 → 松本<br><span style="font-size:0.72rem;color:var(--text-muted)">JR 特急信濃號 約2小時</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=名古屋駅&daddr=松本駅&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="ticket-tip"><strong>票券</strong>🎫 μ-SKY 特急需另購特急券。名古屋→松本建議提早到站購票。</div></div>
+    <div class="hotel-card">
+      <div class="hotel-card-title">🏨 今晚住宿</div>
+      <div class="hotel-name">Toyoko Inn Matsumoto-eki Higashi-guchi</div>
+      <div class="hotel-dates">04/30（週四）Check-in ～ 05/01（週五）Check-out</div>
+      <div class="hotel-actions">
+        <a href="https://maps.google.com/?q=Toyoko+Inn+Matsumoto-eki+Higashi-guchi" target="_blank" class="hotel-nav-btn gmaps">🗺 Google Maps 導航</a>
+        <a href="https://www.google.com/search?q=Toyoko+Inn+Matsumoto+Higashi-guchi" target="_blank" class="hotel-nav-btn">🔍 查詢飯店資訊</a>
+      </div>
+    </div>
 
         <div class="tl-item type-transport">
             <div class="tl-dot"></div>
@@ -1050,6 +1102,15 @@ body::after {
     <div class="day-summary"><div class="ds-grid"><div class="ds-cell"><div class="ds-lbl">今日花費</div><div class="ds-val" id="ds-spend-1">¥0</div><div class="ds-sub" id="ds-ntd-1">≈ NT$0</div></div><div class="ds-cell"><div class="ds-lbl">旅程累計</div><div class="ds-val" id="ds-total-1">¥0</div><div class="ds-sub" id="ds-tntd-1">≈ NT$0</div></div></div><textarea class="ds-note" id="ds-note-1" placeholder="今日小記…" onblur="saveDayNote(1,this.value)"></textarea></div><div class="prog-bar"><div class="prog-header"><span class="prog-lbl">🥾 打卡進度</span><span class="prog-cnt" id="prog-cnt-1"></span></div><div class="prog-track"><div class="prog-line"></div><div class="prog-fill" id="prog-fill-1" style="width:0%"></div><div class="prog-steps"><span class="step" id="step-1-0">🚌</span><span class="step" id="step-1-1">⛽</span><span class="step" id="step-1-2">❄️</span><span class="step" id="step-1-3">🏔️</span><span class="step" id="step-1-4">🚡</span><span class="step" id="step-1-5">🌟</span><span class="step" id="step-1-6">🏁</span></div></div></div>
     <div id="weather-1" class="weather-loading">⛅ 載入天氣中…</div>
     <div class="transport-card"><div class="transport-card-title">🚄 今日交通</div><div class="transport-row"><span class="transport-route">🚂 松本 → 扇澤<br><span style="font-size:0.72rem;color:var(--text-muted)">JR大糸線+路線巴士 約100分</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=松本駅&daddr=扇沢駅&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="transport-row"><span class="transport-route">⚡ 立山黑部阿爾卑斯路線<br><span style="font-size:0.72rem;color:var(--text-muted)">全段套票，建議提前網購</span></span><div class="transport-right"><a href="https://www.alpen-route.com/tw/" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="transport-row"><span class="transport-route">🚄 電鐵富山 → 金澤<br><span style="font-size:0.72rem;color:var(--text-muted)">北陸新幹線 22分鐘</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=富山駅&daddr=金沢駅&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="ticket-tip"><strong>票券</strong>🎫 立山黑部5月旺季，強烈建議官網提前購票。室堂約0-5°C，備保暖衣物。</div></div>
+    <div class="hotel-card">
+      <div class="hotel-card-title">🏨 今晚住宿</div>
+      <div class="hotel-name">Dormy Inn Kanazawa Natural Hot Spring</div>
+      <div class="hotel-dates">05/01（週五）Check-in ～ 05/03（週日）Check-out · 連住 2 晚</div>
+      <div class="hotel-actions">
+        <a href="https://maps.google.com/?q=Dormy+Inn+Kanazawa+Natural+Hot+Spring" target="_blank" class="hotel-nav-btn gmaps">🗺 Google Maps 導航</a>
+        <a href="https://www.google.com/search?q=Dormy+Inn+Kanazawa+Natural+Hot+Spring" target="_blank" class="hotel-nav-btn">🔍 查詢飯店資訊</a>
+      </div>
+    </div>
 
         <div class="tl-item type-transport">
             <div class="tl-dot"></div>
@@ -1148,6 +1209,15 @@ body::after {
     <div class="day-summary"><div class="ds-grid"><div class="ds-cell"><div class="ds-lbl">今日花費</div><div class="ds-val" id="ds-spend-2">¥0</div><div class="ds-sub" id="ds-ntd-2">≈ NT$0</div></div><div class="ds-cell"><div class="ds-lbl">旅程累計</div><div class="ds-val" id="ds-total-2">¥0</div><div class="ds-sub" id="ds-tntd-2">≈ NT$0</div></div></div><textarea class="ds-note" id="ds-note-2" placeholder="今日小記…" onblur="saveDayNote(2,this.value)"></textarea></div><div class="prog-bar"><div class="prog-header"><span class="prog-lbl">🥾 打卡進度</span><span class="prog-cnt" id="prog-cnt-2"></span></div><div class="prog-track"><div class="prog-line"></div><div class="prog-fill" id="prog-fill-2" style="width:0%"></div><div class="prog-steps"><span class="step" id="step-2-0">🚌</span><span class="step" id="step-2-1">🏡</span><span class="step" id="step-2-2">⛩️</span><span class="step" id="step-2-3">🍢</span><span class="step" id="step-2-4">🎋</span><span class="step" id="step-2-5">🛍</span><span class="step" id="step-2-6">🏁</span></div></div></div>
     <div id="weather-2" class="weather-loading">⛅ 載入天氣中…</div>
     <div class="transport-card"><div class="transport-card-title">🚄 今日交通</div><div class="transport-row"><span class="transport-route">🚌 KKday 專車全程接送<br><span style="font-size:0.72rem;color:var(--text-muted)">金澤站集合，含白川鄉+高山</span></span><div class="transport-right"><a href="https://www.kkday.com/zh-tw/" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="ticket-tip"><strong>票券</strong>🎫 全程 KKday 專車，無需自行安排交通。</div></div>
+    <div class="hotel-card">
+      <div class="hotel-card-title">🏨 今晚住宿（連住第 2 晚）</div>
+      <div class="hotel-name">Dormy Inn Kanazawa Natural Hot Spring</div>
+      <div class="hotel-dates">05/02（週六）回金澤 ～ 05/03（週日）Check-out</div>
+      <div class="hotel-actions">
+        <a href="https://maps.google.com/?q=Dormy+Inn+Kanazawa+Natural+Hot+Spring" target="_blank" class="hotel-nav-btn gmaps">🗺 Google Maps 導航</a>
+        <a href="https://www.google.com/search?q=Dormy+Inn+Kanazawa+Natural+Hot+Spring" target="_blank" class="hotel-nav-btn">🔍 查詢飯店資訊</a>
+      </div>
+    </div>
 
         <div class="tl-item type-transport">
             <div class="tl-dot"></div>
@@ -1222,6 +1292,15 @@ body::after {
     <div class="day-summary"><div class="ds-grid"><div class="ds-cell"><div class="ds-lbl">今日花費</div><div class="ds-val" id="ds-spend-3">¥0</div><div class="ds-sub" id="ds-ntd-3">≈ NT$0</div></div><div class="ds-cell"><div class="ds-lbl">旅程累計</div><div class="ds-val" id="ds-total-3">¥0</div><div class="ds-sub" id="ds-tntd-3">≈ NT$0</div></div></div><textarea class="ds-note" id="ds-note-3" placeholder="今日小記…" onblur="saveDayNote(3,this.value)"></textarea></div><div class="prog-bar"><div class="prog-header"><span class="prog-lbl">🥾 打卡進度</span><span class="prog-cnt" id="prog-cnt-3"></span></div><div class="prog-track"><div class="prog-line"></div><div class="prog-fill" id="prog-fill-3" style="width:0%"></div><div class="prog-steps"><span class="step" id="step-3-0">🚌</span><span class="step" id="step-3-1">🐟</span><span class="step" id="step-3-2">🌿</span><span class="step" id="step-3-3">🍵</span><span class="step" id="step-3-4">🏮</span><span class="step" id="step-3-5">🚄</span><span class="step" id="step-3-6">🏁</span></div></div></div>
     <div id="weather-3" class="weather-loading">⛅ 載入天氣中…</div>
     <div class="transport-card"><div class="transport-card-title">🚄 今日交通</div><div class="transport-row"><span class="transport-route">🚌 金澤市區巴士<br><span style="font-size:0.72rem;color:var(--text-muted)">城下町周遊巴士一日券推薦</span></span><div class="transport-right"><a href="https://maps.google.com/?q=金沢駅+バス停" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="transport-row"><span class="transport-route">🚄 金澤 → 名古屋<br><span style="font-size:0.72rem;color:var(--text-muted)">新幹線+白鷺號 約2.5小時</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=金沢駅&daddr=名古屋駅&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="ticket-tip"><strong>票券</strong>🎫 金澤市區推薦購「城下町周遊巴士一日券」，可無限搭乘。</div></div>
+    <div class="hotel-card">
+      <div class="hotel-card-title">🏨 今晚住宿（Check-in）</div>
+      <div class="hotel-name">APA Hotel Nagoya Sakae Ekimae EXCELLENT</div>
+      <div class="hotel-dates">05/03（週日）Check-in ～ 05/06（週三）Check-out · 連住 3 晚</div>
+      <div class="hotel-actions">
+        <a href="https://maps.google.com/?q=APA+Hotel+Nagoya+Sakae+Ekimae+EXCELLENT" target="_blank" class="hotel-nav-btn gmaps">🗺 Google Maps 導航</a>
+        <a href="https://www.google.com/search?q=APA+Hotel+Nagoya+Sakae+Ekimae+EXCELLENT" target="_blank" class="hotel-nav-btn">🔍 查詢飯店資訊</a>
+      </div>
+    </div>
 
         <div class="tl-item type-food">
             <div class="tl-dot"></div>
@@ -1329,6 +1408,14 @@ body::after {
     <div class="day-summary"><div class="ds-grid"><div class="ds-cell"><div class="ds-lbl">今日花費</div><div class="ds-val" id="ds-spend-4">¥0</div><div class="ds-sub" id="ds-ntd-4">≈ NT$0</div></div><div class="ds-cell"><div class="ds-lbl">旅程累計</div><div class="ds-val" id="ds-total-4">¥0</div><div class="ds-sub" id="ds-tntd-4">≈ NT$0</div></div></div><textarea class="ds-note" id="ds-note-4" placeholder="今日小記…" onblur="saveDayNote(4,this.value)"></textarea></div><div class="prog-bar"><div class="prog-header"><span class="prog-lbl">🥾 打卡進度</span><span class="prog-cnt" id="prog-cnt-4"></span></div><div class="prog-track"><div class="prog-line"></div><div class="prog-fill" id="prog-fill-4" style="width:0%"></div><div class="prog-steps"><span class="step" id="step-4-0">🚃</span><span class="step" id="step-4-1">🏯</span><span class="step" id="step-4-2">⛩️</span><span class="step" id="step-4-3">🍜</span><span class="step" id="step-4-4">🛍</span><span class="step" id="step-4-5">🌆</span><span class="step" id="step-4-6">🏁</span></div></div></div>
     <div id="weather-4" class="weather-loading">⛅ 載入天氣中…</div>
     <div class="transport-card"><div class="transport-card-title">🚄 今日交通</div><div class="transport-row"><span class="transport-route">🚃 名古屋 → 犬山<br><span style="font-size:0.72rem;color:var(--text-muted)">名鐵 約35分鐘</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=名古屋駅&daddr=犬山駅&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="transport-row"><span class="transport-route">🚃 犬山 → 岐阜<br><span style="font-size:0.72rem;color:var(--text-muted)">名鐵 約40分鐘</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=犬山駅&daddr=岐阜駅&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="transport-row"><span class="transport-route">🚇 岐阜 → 名古屋大須<br><span style="font-size:0.72rem;color:var(--text-muted)">JR+地鐵 約40分鐘</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=岐阜駅&daddr=大須観音&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="ticket-tip"><strong>票券</strong>🎫 今日搭名鐵多段，可考慮名鐵一日券（¥1,300）。</div></div>
+    <div class="hotel-card">
+      <div class="hotel-card-title">🏨 今晚住宿（連住第 2 晚）</div>
+      <div class="hotel-name">APA Hotel Nagoya Sakae Ekimae EXCELLENT</div>
+      <div class="hotel-dates">05/04（週一）繼續住宿中</div>
+      <div class="hotel-actions">
+        <a href="https://maps.google.com/?q=APA+Hotel+Nagoya+Sakae+Ekimae+EXCELLENT" target="_blank" class="hotel-nav-btn gmaps">🗺 Google Maps 導航</a>
+      </div>
+    </div>
 
         <div class="tl-item type-sight">
             <div class="tl-dot"></div>
@@ -1436,6 +1523,15 @@ body::after {
     <div class="day-summary"><div class="ds-grid"><div class="ds-cell"><div class="ds-lbl">今日花費</div><div class="ds-val" id="ds-spend-5">¥0</div><div class="ds-sub" id="ds-ntd-5">≈ NT$0</div></div><div class="ds-cell"><div class="ds-lbl">旅程累計</div><div class="ds-val" id="ds-total-5">¥0</div><div class="ds-sub" id="ds-tntd-5">≈ NT$0</div></div></div><textarea class="ds-note" id="ds-note-5" placeholder="今日小記…" onblur="saveDayNote(5,this.value)"></textarea></div><div class="prog-bar"><div class="prog-header"><span class="prog-lbl">🥾 打卡進度</span><span class="prog-cnt" id="prog-cnt-5"></span></div><div class="prog-track"><div class="prog-line"></div><div class="prog-fill" id="prog-fill-5" style="width:0%"></div><div class="prog-steps"><span class="step" id="step-5-0">🚇</span><span class="step" id="step-5-1">⛩️</span><span class="step" id="step-5-2">🦤</span><span class="step" id="step-5-3">🚗</span><span class="step" id="step-5-4">🏭</span><span class="step" id="step-5-5">🌙</span><span class="step" id="step-5-6">🏁</span></div></div></div>
     <div id="weather-5" class="weather-loading">⛅ 載入天氣中…</div>
     <div class="transport-card"><div class="transport-card-title">🚄 今日交通</div><div class="transport-row"><span class="transport-route">🚇 名古屋市區地鐵全日<br><span style="font-size:0.72rem;color:var(--text-muted)">推薦購地鐵一日券</span></span><div class="transport-right"><a href="https://maps.google.com/?q=名古屋市営地下鉄" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="ticket-tip"><strong>票券</strong>🎫 名古屋地鐵一日券（¥760）今日最划算，可無限搭乘全線。</div></div>
+    <div class="hotel-card">
+      <div class="hotel-card-title">🏨 今晚住宿（最後一晚）</div>
+      <div class="hotel-name">APA Hotel Nagoya Sakae Ekimae EXCELLENT</div>
+      <div class="hotel-dates">05/05（週二）連住第 3 晚</div>
+      <div class="hotel-actions">
+        <a href="https://maps.google.com/?q=APA+Hotel+Nagoya+Sakae+Ekimae+EXCELLENT" target="_blank" class="hotel-nav-btn gmaps">🗺 Google Maps 導航</a>
+        <a href="https://maps.google.com/?saddr=APA+Hotel+Nagoya+Sakae+Ekimae+EXCELLENT&daddr=名古屋駅&travelmode=transit" target="_blank" class="hotel-nav-btn">🚄 飯店→名古屋駅</a>
+      </div>
+    </div>
 
         <div class="tl-item type-food">
             <div class="tl-dot"></div>
@@ -1523,6 +1619,15 @@ body::after {
     <div class="day-hero"><div class="day-hero-bg" style="background:linear-gradient(135deg,#C8922A 0%,#C96A2A 100%)"></div><div class="day-hero-content"><div><div class="day-hero-title">🎌 返程·最後採買</div><div class="day-hero-sub">名古屋站 · 中部國際機場</div></div><div class="day-hero-badge">D7 · 05/06</div></div></div>
     <div class="day-summary"><div class="ds-grid"><div class="ds-cell"><div class="ds-lbl">今日花費</div><div class="ds-val" id="ds-spend-6">¥0</div><div class="ds-sub" id="ds-ntd-6">≈ NT$0</div></div><div class="ds-cell"><div class="ds-lbl">旅程累計</div><div class="ds-val" id="ds-total-6">¥0</div><div class="ds-sub" id="ds-tntd-6">≈ NT$0</div></div></div><textarea class="ds-note" id="ds-note-6" placeholder="今日小記…" onblur="saveDayNote(6,this.value)"></textarea></div><div class="prog-bar"><div class="prog-header"><span class="prog-lbl">🥾 打卡進度</span><span class="prog-cnt" id="prog-cnt-6"></span></div><div class="prog-track"><div class="prog-line"></div><div class="prog-fill" id="prog-fill-6" style="width:0%"></div><div class="prog-steps"><span class="step" id="step-6-0">🛍</span><span class="step" id="step-6-1">✈️</span><span class="step" id="step-6-2">🛫</span><span class="step" id="step-6-3">🎌</span><span class="step" id="step-6-4">🏠</span><span class="step" id="step-6-5">💤</span><span class="step" id="step-6-6">🏁</span></div></div></div>
     <div id="weather-6" class="weather-loading">⛅ 載入天氣中…</div>
+    <div class="hotel-card">
+      <div class="hotel-card-title">🏨 今日 Check-out</div>
+      <div class="hotel-name">APA Hotel Nagoya Sakae Ekimae EXCELLENT</div>
+      <div class="hotel-dates">05/06（週三）Check-out · 記得帶走所有行李</div>
+      <div class="hotel-actions">
+        <a href="https://maps.google.com/?saddr=APA+Hotel+Nagoya+Sakae+Ekimae+EXCELLENT&daddr=名古屋駅&travelmode=transit" target="_blank" class="hotel-nav-btn gmaps">🚄 飯店→名古屋駅</a>
+        <a href="https://maps.google.com/?saddr=APA+Hotel+Nagoya+Sakae+Ekimae+EXCELLENT&daddr=中部国際空港&travelmode=transit" target="_blank" class="hotel-nav-btn">✈️ 飯店→中部機場</a>
+      </div>
+    </div>
     <div class="transport-card"><div class="transport-card-title">🚄 今日交通</div><div class="transport-row"><span class="transport-route">🚄 名古屋站 → 中部機場<br><span style="font-size:0.72rem;color:var(--text-muted)">μ-SKY 特急 28分鐘</span></span><div class="transport-right"><a href="https://maps.google.com/?saddr=名古屋駅&daddr=中部国際空港&travelmode=transit" target="_blank" class="transport-nav">導航/查詢</a></div></div><div class="ticket-tip"><strong>票券</strong>🎫 出發前90分鐘搭乘，含通關安檢時間。</div></div>
 
         <div class="tl-item type-shop">
@@ -1620,6 +1725,18 @@ body::after {
 <!-- TOOLS PAGE -->
 <div class="page tools-page" id="sec-tools">
   <div style="margin-bottom:13px"><div style="font-size:.58rem;color:var(--blue);letter-spacing:2.5px;font-weight:700;text-transform:uppercase;margin-bottom:3px">TRAVEL TOOLS</div><div style="font-size:1.18rem;font-weight:700">實用工具</div></div>
+
+  <!-- 資料備份同步 -->
+  <div class="backup-card">
+    <div class="backup-title">📦 資料備份與同步</div>
+    <div class="backup-desc">匯出所有手登資料（記帳、筆記、行程編輯、隱藏項目、預算設定），傳給同行者匯入即可同步。格式為標準 JSON，可永久保存。</div>
+    <div class="backup-btns">
+      <button class="backup-btn backup-export" onclick="exportBackup()">⬇️ 匯出完整備份</button>
+      <button class="backup-btn backup-import" onclick="document.getElementById('importFileInput').click()">⬆️ 匯入備份還原</button>
+    </div>
+    <input type="file" id="importFileInput" accept=".json" style="display:none" onchange="importBackup(this)">
+    <div id="backupStatus" style="font-size:.7rem;color:var(--matcha);margin-top:8px;display:none"></div>
+  </div>
   <div class="curr-card">
     <div class="curr-title">💱 匯率換算</div>
     <div class="curr-row"><span class="curr-lbl">JPY</span><input type="number" class="curr-input" id="jpyInput" placeholder="0" oninput="calcCurrency('jpy')" inputmode="numeric"></div>
@@ -2575,6 +2692,70 @@ function installPWA(){if(deferredInstall){deferredInstall.prompt();deferredInsta
 function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.className='show';setTimeout(function(){t.className='';},2900);}
 
 /* ── INIT ── */
+/* ── BACKUP A2 ── */
+function exportBackup() {
+  var payload = {
+    _meta: {
+      app: 'NGOtrip 2026',
+      version: 'v8',
+      exported_at: new Date().toISOString(),
+      exported_by: 'NGO & HOKURIKU'
+    },
+    receipts:    receipts,
+    extraItems:  extraItems,
+    hiddenItems: hiddenItems,
+    memos:       memos,
+    dayNotes:    dayNotes,
+    budget:      budget,
+    pois:        JSON.parse(localStorage.getItem('ngo26_pois')||'{}')
+  };
+  var json = JSON.stringify(payload, null, 2);
+  var blob = new Blob([json], {type: 'application/json;charset=utf-8'});
+  var url  = URL.createObjectURL(blob);
+  var a    = document.createElement('a');
+  var ts   = new Date().toISOString().slice(0,10);
+  a.href   = url;
+  a.download = 'NGOtrip_backup_' + ts + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✓ 備份已匯出，傳給同行者匯入即可同步');
+}
+function importBackup(input) {
+  var file = input.files[0]; if(!file) return;
+  var st = document.getElementById('backupStatus');
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var data = JSON.parse(e.target.result);
+      /* 驗證格式 */
+      if(!data._meta || data._meta.app !== 'NGOtrip 2026') {
+        showToast('❌ 格式不符，請使用本 App 匯出的備份檔'); return;
+      }
+      /* 寫入 localStorage */
+      if(data.receipts)    { receipts    = data.receipts;    localStorage.setItem('ngo26_receipts',    JSON.stringify(receipts)); }
+      if(data.extraItems)  { extraItems  = data.extraItems;  localStorage.setItem('ngo26_extra',       JSON.stringify(extraItems)); }
+      if(data.hiddenItems) { hiddenItems = data.hiddenItems; localStorage.setItem('ngo26_hidden',      JSON.stringify(hiddenItems)); }
+      if(data.memos)       { memos       = data.memos;       localStorage.setItem('ngo26_memos',       JSON.stringify(memos)); }
+      if(data.dayNotes)    { dayNotes    = data.dayNotes;    localStorage.setItem('ngo26_day_notes',   JSON.stringify(dayNotes)); }
+      if(data.budget!=null){ budget      = data.budget;      localStorage.setItem('ngo26_budget',      budget); }
+      if(data.pois)        { localStorage.setItem('ngo26_pois', JSON.stringify(data.pois)); }
+      /* 重新渲染 */
+      applyHidden();
+      for(var i=0;i<7;i++) injectExtraItems(i);
+      renderBudget(); renderMemoList();
+      /* 顯示狀態 */
+      var cnt = (data.receipts||[]).length;
+      var exp = (data._meta.exported_at||'').slice(0,16).replace('T',' ');
+      if(st){ st.style.display='block'; st.textContent='✓ 匯入成功｜'+cnt+' 筆消費｜備份時間：'+exp; }
+      showToast('✓ 備份匯入成功！共 '+cnt+' 筆消費記錄');
+    } catch(err) {
+      showToast('❌ 匯入失敗：' + err.message);
+    }
+    input.value = '';
+  };
+  reader.readAsText(file, 'utf-8');
+}
+
 function init() {
   /* 遷移舊版「購物」類別 → 使用 detectCategory 重新推斷 */
   var migrated=false;
